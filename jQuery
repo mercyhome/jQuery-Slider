@@ -1,14 +1,54 @@
-$(function() {
-        $("#slider").slider({
-			value: 25,
-			min:   0,
-			max:   1000,
-			step:  25,
-			slide: function (event, ui) {
-                $("#amount").val("$" + ui.value);
-                $('#images').children().hide();
-                $("#"+ui.value).show();
-            }
-		});
-		$("#amount").val("$" + $("#slider").slider("value") );
-	});
+//magic starts to happen
+$("#slider").slider({
+  min: 0,
+  max: 6,// 6 donation options
+  step: 1,
+  slide: function(event, ui) {
+    var s = ui.value;
+    switch(ui.value) {
+       //Changes increment amount to proper donation amount 
+        case 1: //initialize the steps
+         s = '25';
+             $("#amount").val("$" + ui.value);
+            
+    $('#images').children().hide(); //displays image while hiding previous image
+            $("#"+ui.value).show();
+            
+            
+         break;
+       case 2:
+         s = '50';
+             $("#amount").val("$" + ui.value);
+    $('#images').children().hide();
+            $("#"+ui.value).show();
+         break;
+        case 3:
+         s = '75';
+             $("#amount").val("$" + ui.value);
+    $('#images').children().hide();
+            $("#"+ui.value).show();
+         break;
+        case 4:
+            s = '100';
+            $("#amount").val("$" + ui.value);
+    $('#images').children().hide();
+            $("#"+ui.value).show();
+            break;
+        case 5:
+            s = '250';
+            $("#amount").val("$" + ui.value);
+    $('#images').children().hide();
+            $("#"+ui.value).show();
+            break;
+        case 6:
+            s = '1000';
+            $("#amount").val("$" + ui.value);
+    $('#images').children().hide();
+            $("#"+ui.value).show();
+            break;
+           
+    }
+      
+      $("#amount").val("$" + s +".00") 
+  }
+});
